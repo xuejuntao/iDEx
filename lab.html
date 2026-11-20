@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Lab — ideaExchange (iDEx)</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="trust-strip">
+  <span class="lock">🔒</span> The Lab reads sealed detail only inside rooms · brief visible to room parties
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><span class="mark">◆</span> idea<b>Exchange</b></a>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+    <div class="nav-links" id="navlinks">
+      <a href="discover.html">Discover</a>
+      <a href="idea-new.html">Post an Idea</a>
+      <a href="lab.html" class="active">The Lab</a>
+      <a class="avatar-chip" href="profile.html"><span class="avatar">LO</span> Dr. Ortiz <span class="vtick">✓</span></a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" style="padding:56px 0 60px">
+  <div class="wrap">
+    <span class="eyebrow">🧪 The intelligence layer</span>
+    <h1 style="max-width:20ch">The Lab helps you match, de-risk, and know your next step.</h1>
+    <p class="lede">The Lab is iDEx's intelligence layer. It matches ideas with the right collaborators, assembles a de-risking brief from market and prior-art signals, and guides the next steps toward readiness — all with cited sources.</p>
+  </div>
+</header>
+
+<main class="wrap section">
+  <!-- Three capabilities -->
+  <div class="grid grid-3" style="margin-bottom:44px">
+    <div class="card">
+      <div class="step-num">◇</div>
+      <h3>Matching</h3>
+      <p class="muted">Pairs the skill an iDeaer seeks with verified collaborators, scoring fit and explaining why — so matches are legible, not a black box.</p>
+    </div>
+    <div class="card">
+      <div class="step-num">◇</div>
+      <h3>De-risking brief</h3>
+      <p class="muted">Summarizes market signal, similar and prior work, and feasibility pointers — each tied to a cited source you can inspect.</p>
+    </div>
+    <div class="card">
+      <div class="step-num">◇</div>
+      <h3>Next-step guidance</h3>
+      <p class="muted">Suggests validation milestones and IP steps, and gauges readiness for optional investor visibility — on your schedule.</p>
+    </div>
+  </div>
+
+  <div class="notice notice-info" style="margin-bottom:40px">
+    <span>ℹ</span>
+    <span>The Lab assesses credibility and readiness — it does <b>not</b> predict which ideas will win. Judgment stays with you and your collaborator.</span>
+  </div>
+
+  <!-- Sample brief -->
+  <section class="panel">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:6px">
+      <h2 style="margin:0">Sample de-risking brief</h2>
+      <span class="tag tag-domain">Materials / Hardware</span>
+    </div>
+    <p class="muted">For the idea <strong>"A lower-cost home water-testing method"</strong> · generated inside the Collaboration Room.</p>
+
+    <h3>Market signal</h3>
+    <div class="cite">
+      Consumer demand for at-home water-quality testing is growing alongside aging infrastructure and lead-exposure awareness. Current options split between inexpensive-but-unreliable strips and accurate-but-costly lab mail-ins, leaving an unserved middle this idea targets.
+      <span class="src">⌁ source: iDEx market index · consumer water safety · 2026 <a class="cite-ref" href="#refs">[1]</a></span>
+    </div>
+
+    <h3>Similar / prior work</h3>
+    <div class="cite">
+      Microfluidic colorimetric assays are well represented in academic literature, but most remain lab-bound and are not optimized for low-cost consumer manufacture. A prior-art scan found no dominant consumer product combining phone-read colorimetry with a disposable low-cost strip at this price point.
+      <span class="src">⌁ source: prior-art scan · 42 references · patents + publications <a class="cite-ref" href="#refs">[2]</a></span>
+    </div>
+
+    <h3>Feasibility pointers</h3>
+    <ul class="checklist">
+      <li><span class="mk">✓</span> Core chemistry validated at bench scale (120 samples vs. lab reference).</li>
+      <li><span class="mk">✓</span> Phone-read calibration shifts cost from hardware to software.</li>
+      <li><span class="mk">⚠</span> Reagent-film shelf life and volume supply is the key open risk to resolve early.
+        <a class="cite-ref" href="#refs">[3]</a></li>
+    </ul>
+
+    <h3>Suggested next steps</h3>
+    <div class="grid grid-3" style="margin-top:12px">
+      <div class="card" style="background:var(--tint)">
+        <h4 style="margin:0 0 8px;color:var(--navy)">Validation milestones</h4>
+        <ul class="checklist" style="font-size:.9rem">
+          <li><span class="mk">1</span> Field pilot with 25 households.</li>
+          <li><span class="mk">2</span> Independent accuracy comparison.</li>
+          <li><span class="mk">3</span> Reagent stability over 12 months.</li>
+        </ul>
+      </div>
+      <div class="card" style="background:var(--tint)">
+        <h4 style="margin:0 0 8px;color:var(--navy)">IP steps</h4>
+        <ul class="checklist" style="font-size:.9rem">
+          <li><span class="mk">1</span> File a provisional before any public demo.</li>
+          <li><span class="mk">2</span> Keep enabling detail room-only.</li>
+          <li><span class="mk">3</span> Clear freedom-to-operate on reagent film.</li>
+        </ul>
+      </div>
+      <div class="card" style="background:var(--tint)">
+        <h4 style="margin:0 0 8px;color:var(--navy)">Investor readiness</h4>
+        <p class="muted" style="font-size:.9rem;margin:0">Readiness for optional investor visibility: <strong class="mono">Early</strong>. Clear the shelf-life risk and complete a field pilot to reach <span class="mono">Ready</span>.</p>
+      </div>
+    </div>
+
+    <!-- References -->
+    <div id="refs" style="margin-top:26px;border-top:1px solid var(--line);padding-top:16px">
+      <h4 style="color:var(--muted);text-transform:uppercase;font-size:.78rem;letter-spacing:.04em">Cited sources</h4>
+      <ol class="mono" style="font-size:.82rem;color:var(--muted);line-height:1.8;padding-left:20px;margin:0">
+        <li>iDEx Market Index — Consumer Water Safety segment, 2026.</li>
+        <li>iDEx Prior-Art Scan — 42 patents &amp; publications reviewed, 2026.</li>
+        <li>iDEx Feasibility Notes — reagent stability risk flag.</li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <span>ideaExchange (iDEx) — prototype · not a live product.</span>
+    <span><a href="index.html">Home</a> · <a href="discover.html">Discover</a> · <a href="profile.html">Profile</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

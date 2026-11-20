@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Discover — ideaExchange (iDEx)</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="trust-strip">
+  <span class="lock">🔒</span> Private-by-default · you're seeing Teasers only — Full Detail opens inside a room
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><span class="mark">◆</span> idea<b>Exchange</b></a>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+    <div class="nav-links" id="navlinks">
+      <a href="discover.html" class="active">Discover</a>
+      <a href="idea-new.html">Post an Idea</a>
+      <a href="lab.html">The Lab</a>
+      <a class="avatar-chip" href="profile.html"><span class="avatar">LO</span> Dr. Ortiz <span class="vtick">✓</span></a>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap section">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:26px">
+    <div>
+      <h1 style="margin-bottom:6px">Your matches</h1>
+      <p class="muted" style="margin:0">Ranked by Lab match. <span class="mono">3</span> ideas seeking collaborators in your fields.</p>
+    </div>
+    <a class="btn btn-primary" href="idea-new.html">Post an idea</a>
+  </div>
+
+  <div class="discover-layout">
+    <!-- Filters (visual only) -->
+    <aside class="filters panel" aria-label="Filters">
+      <h4 style="margin-top:0">Filters</h4>
+      <div class="filter-group">
+        <h4>Domain</h4>
+        <label class="check"><input type="checkbox" checked> Materials / Hardware</label>
+        <label class="check"><input type="checkbox"> AgTech / ML</label>
+        <label class="check"><input type="checkbox"> Computational biology</label>
+        <label class="check"><input type="checkbox"> Climate / Energy</label>
+      </div>
+      <div class="filter-group">
+        <h4>Skill sought</h4>
+        <label class="check"><input type="checkbox"> Hardware co-founder</label>
+        <label class="check"><input type="checkbox"> ML engineer</label>
+        <label class="check"><input type="checkbox"> Backend engineer</label>
+        <label class="check"><input type="checkbox"> Go-to-market</label>
+      </div>
+      <div class="filter-group">
+        <h4>Stake type</h4>
+        <label class="check"><input type="checkbox"> Equity</label>
+        <label class="check"><input type="checkbox"> Co-authorship</label>
+        <label class="check"><input type="checkbox"> Royalties</label>
+      </div>
+      <p class="muted" style="font-size:.76rem">Filters are illustrative in this prototype.</p>
+    </aside>
+
+    <!-- Match feed -->
+    <section class="grid" aria-label="Idea matches">
+
+      <!-- Card 1 -->
+      <article class="card card-hover match-card">
+        <div class="top">
+          <div>
+            <div class="meta-row" style="margin-bottom:8px">
+              <span class="tag tag-domain">Materials / Hardware</span>
+              <span class="tag">Seeks: Hardware co-founder</span>
+              <span class="tag">Stake: Equity</span>
+            </div>
+            <h3 style="margin:0"><a href="idea.html">A lower-cost home water-testing method</a></h3>
+            <p class="muted" style="margin:6px 0 0">Making reliable at-home water safety checks affordable for households that labs can't reach.</p>
+          </div>
+          <div class="match" title="Lab match score">
+            <div>
+              <div class="match-score">92%</div>
+              <div class="match-bar"><span style="width:92%"></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="cred-row">
+          <span class="badge badge-verified">✓ Verified · PhD, materials science</span>
+          <span class="rep"><span class="star">★</span> 4.8 · 3 collaborations</span>
+          <span class="lock-cue"><span class="lock">🔒</span> Teaser only — full detail in a private room</span>
+        </div>
+        <div class="card-foot">
+          <span class="tip" tabindex="0">Why matched
+            <span class="tip-body">Your verified materials-science background and hardware-prototyping history closely fit the co-founder this iDeaer is seeking.</span>
+          </span>
+          <a class="btn btn-primary" href="idea.html">Express interest</a>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="card card-hover match-card">
+        <div class="top">
+          <div>
+            <div class="meta-row" style="margin-bottom:8px">
+              <span class="tag tag-domain">AgTech / ML</span>
+              <span class="tag">Seeks: ML engineer</span>
+              <span class="tag">Stake: Equity + co-authorship</span>
+            </div>
+            <h3 style="margin:0"><a href="idea.html">Early crop-disease detection from phone photos</a></h3>
+            <p class="muted" style="margin:6px 0 0">Helping smallholder farmers catch disease days earlier using only a phone camera.</p>
+          </div>
+          <div class="match" title="Lab match score">
+            <div>
+              <div class="match-score">88%</div>
+              <div class="match-bar"><span style="width:88%"></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="cred-row">
+          <span class="badge badge-verified">✓ Verified</span>
+          <span class="rep"><span class="star">★</span> 4.6 · 2 collaborations</span>
+          <span class="lock-cue"><span class="lock">🔒</span> Teaser only — full detail in a private room</span>
+        </div>
+        <div class="card-foot">
+          <span class="tip" tabindex="0">Why matched
+            <span class="tip-body">Strong overlap with your computer-vision work; this idea needs an ML engineer to move from prototype to field trials.</span>
+          </span>
+          <a class="btn btn-primary" href="idea.html">Express interest</a>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="card card-hover match-card">
+        <div class="top">
+          <div>
+            <div class="meta-row" style="margin-bottom:8px">
+              <span class="tag tag-domain">Computational biology</span>
+              <span class="tag">Seeks: Backend engineer</span>
+              <span class="tag">Stake: Equity</span>
+            </div>
+            <h3 style="margin:0"><a href="idea.html">Protein-folding shortcut for small labs</a></h3>
+            <p class="muted" style="margin:6px 0 0">Bringing fast structure prediction within reach of labs without supercomputers.</p>
+          </div>
+          <div class="match" title="Lab match score">
+            <div>
+              <div class="match-score">85%</div>
+              <div class="match-bar"><span style="width:85%"></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="cred-row">
+          <span class="badge badge-verified">✓ Verified · PhD</span>
+          <span class="rep"><span class="star">★</span> 4.9 · 5 collaborations</span>
+          <span class="lock-cue"><span class="lock">🔒</span> Teaser only — full detail in a private room</span>
+        </div>
+        <div class="card-foot">
+          <span class="tip" tabindex="0">Why matched
+            <span class="tip-body">Your distributed-systems experience fits the scalable backend this computational-biology idea needs.</span>
+          </span>
+          <a class="btn btn-primary" href="idea.html">Express interest</a>
+        </div>
+      </article>
+
+    </section>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <span>ideaExchange (iDEx) — prototype · not a live product.</span>
+    <span><a href="index.html">Home</a> · <a href="lab.html">The Lab</a> · <a href="profile.html">Profile</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

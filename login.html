@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign in — ideaExchange (iDEx)</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* extend the shared field styling to email/password inputs */
+  input[type="email"], input[type="password"] {
+    width: 100%; font: inherit; color: var(--ink);
+    padding: 11px 13px; border: 1px solid var(--line); border-radius: var(--radius);
+    background: #fff; transition: border-color .15s ease, box-shadow .15s ease;
+  }
+  input[type="email"]:focus, input[type="password"]:focus {
+    outline: none; border-color: var(--teal); box-shadow: 0 0 0 3px rgba(20,184,166,.18);
+  }
+  .auth-wrap { max-width: 440px; margin: 0 auto; padding: 56px 20px 72px; }
+  .auth-card { padding: 30px 30px 28px; }
+  .auth-head { text-align: center; margin-bottom: 24px; }
+  .auth-head .mark { color: var(--teal); font-size: 1.6rem; }
+  .auth-head h1 { font-size: 1.5rem; margin: 10px 0 6px; }
+  .sample-box {
+    background: var(--tint); border: 1px dashed #c3ccdd; border-radius: var(--radius);
+    padding: 13px 15px; margin-bottom: 22px; font-size: .88rem;
+  }
+  .sample-box .sample-title { font-weight: 700; color: var(--navy); display:flex; align-items:center; gap:7px; }
+  .sample-box dl { display: grid; grid-template-columns: auto 1fr; gap: 3px 12px; margin: 9px 0 11px; }
+  .sample-box dt { color: var(--muted); }
+  .sample-box dd { margin: 0; font-family: var(--mono); color: var(--ink); }
+  .auth-foot-links { text-align: center; margin-top: 18px; font-size: .9rem; }
+  .row-between { display:flex; justify-content:space-between; align-items:center; }
+  .check { display:flex; align-items:center; gap:7px; font-size:.88rem; color:var(--muted); font-weight:400; margin-bottom:0; }
+  .link-teal { color: var(--teal-700); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="trust-strip">
+  <span class="lock">🔒</span> Private-by-default · your ideas stay sealed until a room opens
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><span class="mark">◆</span> idea<b>Exchange</b></a>
+    <div class="nav-links">
+      <a href="discover.html">Discover</a>
+      <a href="lab.html">The Lab</a>
+      <a class="btn btn-ghost" href="index.html">Back to home</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="auth-wrap">
+    <div class="card auth-card">
+      <div class="auth-head">
+        <span class="mark">◆</span>
+        <h1>Welcome back to iDEx</h1>
+        <p class="muted">Sign in to your verified member account.</p>
+      </div>
+
+      <div class="sample-box">
+        <div class="sample-title">🧪 Prototype sample login</div>
+        <dl>
+          <dt>Email</dt><dd id="s-email">lena.ortiz@idex.demo</dd>
+          <dt>Password</dt><dd id="s-pass">demo1234</dd>
+        </dl>
+        <button type="button" class="btn btn-ghost btn-block" onclick="useSample()">Use sample credentials</button>
+      </div>
+
+      <form id="loginForm" onsubmit="return signIn(event)">
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="username" placeholder="you@institution.edu" required>
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" autocomplete="current-password" placeholder="••••••••" required>
+        </div>
+        <div class="row-between" style="margin-bottom:20px">
+          <label class="check"><input type="checkbox" id="remember" style="width:auto"> Keep me signed in</label>
+          <a href="#" class="link-teal" onclick="return false">Forgot password?</a>
+        </div>
+        <div class="guard" id="authError">
+          <span class="shield">⚠</span>
+          <span>Those credentials didn't match. <b>Try the sample login above</b> for this prototype.</span>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+      </form>
+
+      <div class="notice notice-success" style="margin-top:20px; font-size:.85rem">
+        <span>✓</span>
+        <span>Verified members only. Identity &amp; affiliation are checked before your first collaboration — that's what keeps disclosure safe.</span>
+      </div>
+
+      <div class="auth-foot-links muted">
+        New to iDEx? <a class="link-teal" href="idea-new.html">Post an idea to join</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <span>ideaExchange (iDEx) — prototype · not a live product.</span>
+    <span><a href="index.html">Home</a> · <a href="discover.html">Discover</a> · <a href="lab.html">The Lab</a></span>
+  </div>
+</footer>
+
+<script>
+  var SAMPLE = { email: "lena.ortiz@idex.demo", pass: "demo1234" };
+  function useSample() {
+    document.getElementById('email').value = SAMPLE.email;
+    document.getElementById('password').value = SAMPLE.pass;
+    document.getElementById('authError').classList.remove('show');
+    document.getElementById('password').focus();
+  }
+  function signIn(e) {
+    e.preventDefault();
+    var email = document.getElementById('email').value.trim().toLowerCase();
+    var pass = document.getElementById('password').value;
+    // Prototype auth: accept the sample credentials (or any non-empty email with the sample password).
+    if ((email === SAMPLE.email || email.length > 3) && pass === SAMPLE.pass) {
+      window.location.href = 'discover.html';
+      return false;
+    }
+    document.getElementById('authError').classList.add('show');
+    return false;
+  }
+</script>
+
+</body>
+</html>

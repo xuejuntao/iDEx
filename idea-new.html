@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Post an Idea — ideaExchange (iDEx)</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="trust-strip">
+  <span class="lock">🔒</span> Private-by-default · only your Teaser is published — Full Detail stays sealed
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><span class="mark">◆</span> idea<b>Exchange</b></a>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+    <div class="nav-links" id="navlinks">
+      <a href="discover.html">Discover</a>
+      <a href="idea-new.html" class="active">Post an Idea</a>
+      <a href="lab.html">The Lab</a>
+      <a class="avatar-chip" href="profile.html"><span class="avatar">LO</span> Dr. Ortiz <span class="vtick">✓</span></a>
+    </div>
+  </div>
+</nav>
+
+<main class="narrow section">
+  <h1>Compose your idea</h1>
+  <p class="muted" style="margin-bottom:22px">Two layers, by design. Publish an abstracted Teaser the world can see. Keep the enabling detail sealed — it's revealed only inside an NDA-gated Collaboration Room.</p>
+
+  <div class="notice notice-info" style="margin-bottom:28px">
+    <span>🛡</span>
+    <span>Staged disclosure protects your patent rights. Most countries have <b>no grace period</b> — a public enabling disclosure can forfeit your ability to patent. Keep anything that teaches "how" in Full Detail.</span>
+  </div>
+
+  <form onsubmit="event.preventDefault(); document.getElementById('published').scrollIntoView({behavior:'smooth'}); document.getElementById('published').classList.remove('hidden');">
+
+    <!-- Public Teaser -->
+    <div class="field field-public">
+      <label for="teaser">Public Teaser <span class="visibility-pill">👁 Everyone can see this</span></label>
+      <p class="hint">A short, non-enabling summary of the problem and the opportunity — enough to attract the right collaborator, not enough to give it away.</p>
+      <textarea id="teaser" placeholder="e.g. A lower-cost way for households to check their water is safe to drink, without sending samples to a lab." oninput="checkDisclosure()"></textarea>
+      <div class="guard" id="guard" role="alert">
+        <span class="shield">⚠</span>
+        <span><b>Heads up: this looks like enabling detail.</b> Posting it publicly could affect your patent rights — most countries have no grace period. Move it to Full Detail.</span>
+      </div>
+    </div>
+
+    <!-- Sealed Full Detail -->
+    <div class="field field-sealed">
+      <label for="detail">Private Full Detail <span class="badge badge-sealed">🔒 Sealed — only shown inside an NDA-gated room</span></label>
+      <p class="hint">The real "how": methods, mechanisms, formulas, data. Encrypted at rest and never shown publicly. Revealed only after both parties sign the mutual NDA.</p>
+      <textarea id="detail" placeholder="Describe the method, mechanism, results, and what a collaborator would build. This never appears in the Teaser."></textarea>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="field">
+        <label for="role">Collaborator sought</label>
+        <select id="role">
+          <option>Hardware co-founder</option>
+          <option>ML engineer</option>
+          <option>Backend engineer</option>
+          <option>Wet-lab scientist</option>
+          <option>Go-to-market lead</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="stake">Stake offered</label>
+        <select id="stake">
+          <option>Equity</option>
+          <option>Equity + co-authorship</option>
+          <option>Royalties</option>
+          <option>Co-authorship</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="domain">Domain</label>
+      <input type="text" id="domain" value="Materials / Hardware">
+    </div>
+
+    <div class="notice notice-sealed" style="margin-bottom:22px">
+      <span class="lock">🔒</span>
+      <span>On publish, only your Teaser goes live. A Provenance Record timestamps the disclosure so there's a record of what you shared, and when.</span>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-lg btn-block">Publish Teaser</button>
+  </form>
+
+  <div class="panel hidden notice-success" id="published" style="margin-top:28px;display:flex;gap:12px;align-items:flex-start">
+    <span style="font-size:1.3rem">✓</span>
+    <div>
+      <strong>Teaser published.</strong>
+      <p class="muted" style="margin:6px 0 10px">Your Full Detail stays sealed. We'll start matching you with verified collaborators.</p>
+      <span class="provenance"><span class="seal">⏱</span> Teaser disclosed · 2026-11-20 · provenance recorded</span>
+      <div style="margin-top:14px"><a class="btn btn-navy" href="discover.html">See your matches</a></div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <span>ideaExchange (iDEx) — prototype · not a live product.</span>
+    <span><a href="index.html">Home</a> · <a href="discover.html">Discover</a> · <a href="lab.html">The Lab</a></span>
+  </div>
+</footer>
+
+<script>
+  // Disclosure-risk guard: flag enabling / "how-to" language in the public Teaser.
+  var RISKY = ["formula", "process", "method is", "we do this by", "chemical", "algorithm is"];
+  function checkDisclosure() {
+    var v = document.getElementById('teaser').value.toLowerCase();
+    var hit = RISKY.some(function (p) { return v.indexOf(p) !== -1; });
+    document.getElementById('guard').classList.toggle('show', hit);
+  }
+</script>
+
+</body>
+</html>

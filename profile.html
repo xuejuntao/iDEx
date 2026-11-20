@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dr. Lena Ortiz — ideaExchange (iDEx)</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="trust-strip">
+  <span class="lock">🔒</span> Private-by-default · members control what's public, matches-only, or room-only
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><span class="mark">◆</span> idea<b>Exchange</b></a>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+    <div class="nav-links" id="navlinks">
+      <a href="discover.html">Discover</a>
+      <a href="idea-new.html">Post an Idea</a>
+      <a href="lab.html">The Lab</a>
+      <a class="avatar-chip" href="profile.html"><span class="avatar">LO</span> Dr. Ortiz <span class="vtick">✓</span></a>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap section">
+  <!-- Head -->
+  <section class="panel profile-head" style="margin-bottom:22px">
+    <div class="profile-av">LO</div>
+    <div style="flex:1;min-width:240px">
+      <h1 style="margin-bottom:4px">Dr. Lena Ortiz</h1>
+      <p class="muted" style="margin:0 0 12px">Materials Science, PhD · Researcher-founder</p>
+      <div class="cred-row">
+        <span class="badge badge-verified">✓ Identity verified</span>
+        <span class="badge badge-verified">✓ Affiliation verified</span>
+        <span class="rep"><span class="star">★</span> 4.8 reputation</span>
+      </div>
+    </div>
+    <a class="btn btn-ghost" href="discover.html">Back to Discover</a>
+  </section>
+
+  <div class="grid grid-2" style="align-items:start">
+    <!-- Left column -->
+    <div class="grid">
+      <section class="card">
+        <h2 style="margin-top:0">Reputation</h2>
+        <dl class="kv">
+          <dt>Completed collaborations</dt><dd class="mono">3</dd>
+          <dt>Endorsements</dt><dd class="mono">11</dd>
+          <dt>Avg. rating</dt><dd><span class="rep"><span class="star">★</span> 4.8 / 5</span></dd>
+          <dt>Member since</dt><dd class="mono">2025</dd>
+        </dl>
+        <p class="muted" style="font-size:.84rem;margin:12px 0 0">Reputation reflects verified identity, an idea-quality bar, and real collaboration history — not a prediction of which ideas will succeed.</p>
+      </section>
+
+      <section class="card">
+        <h2 style="margin-top:0">Skills</h2>
+        <div class="meta-row">
+          <span class="tag">Materials characterization</span>
+          <span class="tag">Microfluidics</span>
+          <span class="tag">Colorimetric assays</span>
+          <span class="tag">Benchtop prototyping</span>
+          <span class="tag">Grant writing</span>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 style="margin-top:0">Interests</h2>
+        <div class="meta-row">
+          <span class="tag tag-domain">Water &amp; environment</span>
+          <span class="tag tag-domain">Low-cost diagnostics</span>
+          <span class="tag tag-domain">Public-health hardware</span>
+        </div>
+      </section>
+    </div>
+
+    <!-- Right column -->
+    <div class="grid">
+      <section class="card">
+        <h2 style="margin-top:0">Field-level visibility</h2>
+        <p class="muted">You decide who sees each field. Full Detail is never public.</p>
+        <table class="vis-table">
+          <thead><tr><th>Field</th><th>Visible to</th></tr></thead>
+          <tbody>
+            <tr><td>Name &amp; credentials</td><td><span class="visibility-pill">👁 Public</span></td></tr>
+            <tr><td>Skills &amp; interests</td><td><span class="visibility-pill">👁 Public</span></td></tr>
+            <tr><td>Contact details</td><td><span class="visibility-pill">👥 Matches</span></td></tr>
+            <tr><td>Idea Full Detail</td><td><span class="badge badge-sealed">🔒 Room only</span></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="card">
+        <h2 style="margin-top:0">Active ideas &amp; collaborations</h2>
+        <ul class="checklist">
+          <li><span class="mk">◆</span>
+            <div style="flex:1">
+              <a href="idea.html"><strong>A lower-cost home water-testing method</strong></a>
+              <div class="muted" style="font-size:.85rem">Seeking hardware co-founder · Stake: Equity · <span class="badge badge-lock">🔒 Teaser live</span></div>
+            </div>
+          </li>
+          <li><span class="mk">◆</span>
+            <div style="flex:1">
+              <strong>Reagent shelf-life study</strong>
+              <div class="muted" style="font-size:.85rem">In a private room · <span class="badge badge-verified">✓ NDA active</span></div>
+            </div>
+          </li>
+          <li><span class="mk">✓</span>
+            <div style="flex:1">
+              <strong>Portable turbidity sensor</strong>
+              <div class="muted" style="font-size:.85rem">Completed collaboration · co-authored publication</div>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <span>ideaExchange (iDEx) — prototype · not a live product.</span>
+    <span><a href="index.html">Home</a> · <a href="discover.html">Discover</a> · <a href="lab.html">The Lab</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

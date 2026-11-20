@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Collaboration Room — ideaExchange (iDEx)</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="trust-strip">
+  <span class="lock">🔒</span> Private Collaboration Room · encrypted · visible only to the two parties
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><span class="mark">◆</span> idea<b>Exchange</b></a>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+    <div class="nav-links" id="navlinks">
+      <a href="discover.html">Discover</a>
+      <a href="idea-new.html">Post an Idea</a>
+      <a href="lab.html">The Lab</a>
+      <a class="avatar-chip" href="profile.html"><span class="avatar">LO</span> Dr. Ortiz <span class="vtick">✓</span></a>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap section">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:8px">
+    <div>
+      <h1 style="margin-bottom:6px">Collaboration Room</h1>
+      <p class="muted" style="margin:0"><strong>A lower-cost home water-testing method</strong> · <span class="mono">Room #IDX-4471</span></p>
+    </div>
+    <span class="badge badge-sealed" id="roomState">🔒 Sealed</span>
+  </div>
+
+  <!-- Stage tracker -->
+  <div class="stage-track" aria-label="Progress">
+    <div class="stage-step active" id="t1"><span class="dot">1</span> NDA gate</div>
+    <div class="stage-step" id="t2"><span class="dot">2</span> Full detail &amp; brief</div>
+    <div class="stage-step" id="t3"><span class="dot">3</span> Agreement</div>
+  </div>
+
+  <!-- STAGE A: NDA GATE -->
+  <section class="panel" id="stageNda">
+    <span class="badge badge-sealed" style="margin-bottom:14px">🔒 Sealed</span>
+    <h2>Full Detail is sealed</h2>
+    <p class="muted">Both parties must accept the mutual NDA to proceed. On acceptance, the sealed Full Detail unseals for the two of you only, and the Lab's de-risking brief becomes available. The disclosure is recorded with provenance.</p>
+
+    <div class="card" style="background:var(--tint);margin:18px 0">
+      <h3 style="margin-top:0">Mutual Non-Disclosure Agreement — summary</h3>
+      <ul class="checklist">
+        <li><span class="mk">✓</span> Each party keeps the other's confidential information private.</li>
+        <li><span class="mk">✓</span> Full Detail may be used only to evaluate and advance this collaboration.</li>
+        <li><span class="mk">✓</span> Obligations survive if the collaboration doesn't proceed.</li>
+        <li><span class="mk">✓</span> Acceptance is timestamped in the Provenance Record.</li>
+      </ul>
+    </div>
+
+    <div class="cred-row" style="margin-bottom:18px">
+      <span class="badge badge-verified">✓ You — identity verified</span>
+      <span class="badge badge-verified">✓ iDeaer — Dr. Lena Ortiz, verified</span>
+    </div>
+
+    <button class="btn btn-primary btn-lg" onclick="acceptNda()">🔓 Accept NDA &amp; reveal full detail</button>
+  </section>
+
+  <!-- UNSEALING state -->
+  <section class="panel hidden" id="stageUnsealing">
+    <div class="unsealing">
+      <div class="ring" aria-hidden="true"></div>
+      <h2 style="margin-bottom:6px">Unsealing…</h2>
+      <p class="muted">Verifying both signatures and decrypting Full Detail.</p>
+    </div>
+  </section>
+
+  <!-- STAGE B: REVEALED -->
+  <section class="hidden" id="stageRevealed">
+    <div class="notice notice-success" style="margin-bottom:22px">
+      <span>🔓</span>
+      <div>
+        <strong>Full Detail unsealed.</strong> Both parties accepted the mutual NDA.
+        <div style="margin-top:8px"><span class="provenance"><span class="seal">⏱</span> NDA executed &amp; detail revealed · 2026-11-20 16:41 UTC · provenance recorded</span></div>
+      </div>
+    </div>
+
+    <!-- Full detail -->
+    <section class="panel" style="margin-bottom:22px;border-left:4px solid var(--teal)">
+      <span class="badge badge-verified" style="margin-bottom:12px">🔓 Full Detail — confidential</span>
+      <h2>The method</h2>
+      <p>The device uses a low-cost reagent film layered over a disposable microfluidic strip. Target contaminants (lead, nitrates, and selected bacteria) produce a colorimetric shift that a phone camera reads under controlled lighting from a snap-on housing. Calibration is handled in software, so the hardware stays inexpensive and manufacturable.</p>
+      <p>Bench testing across 120 samples showed agreement with lab reference methods within acceptable tolerance for a screening-grade device. The remaining work is ruggedizing the housing, sourcing the reagent film at volume, and designing for manufacture — which is where a hardware co-founder comes in.</p>
+    </section>
+
+    <!-- Lab de-risking brief -->
+    <section class="panel" style="margin-bottom:22px">
+      <h2>🧪 Lab de-risking brief</h2>
+      <p class="muted">An intelligence summary to help you both assess feasibility — not a prediction of whether the idea will win.</p>
+
+      <h3>Market signal</h3>
+      <div class="cite">
+        At-home water-quality testing demand is rising with aging infrastructure and lead-exposure concern; existing consumer kits are either cheap-but-unreliable strips or accurate-but-costly lab mail-ins — a gap this idea targets.
+        <span class="src">⌁ source: iDEx market index · consumer water safety · 2026</span>
+      </div>
+
+      <h3>Similar / prior work</h3>
+      <div class="cite">
+        Several microfluidic colorimetric assays appear in academic literature; most are lab-bound and not optimized for low-cost consumer manufacture. No dominant consumer product combines phone-read colorimetry with a disposable low-cost strip at this price point.
+        <span class="src">⌁ source: prior-art scan · 42 references reviewed · patents + publications</span>
+      </div>
+
+      <h3>Feasibility pointers</h3>
+      <ul class="checklist">
+        <li><span class="mk">✓</span> Core chemistry is validated at bench scale (120 samples).</li>
+        <li><span class="mk">✓</span> Phone-read calibration shifts cost from hardware to software — favorable.</li>
+        <li><span class="mk">⚠</span> Reagent-film shelf life and supply at volume is the key open risk.</li>
+      </ul>
+    </section>
+
+    <!-- Workspace stub -->
+    <section class="panel" style="margin-bottom:22px">
+      <h2>Shared workspace</h2>
+      <div class="tabs" role="tablist">
+        <button class="tab active" onclick="showTab(event,'tabMsg')">Messages</button>
+        <button class="tab" onclick="showTab(event,'tabFiles')">Files</button>
+        <button class="tab" onclick="showTab(event,'tabNotes')">Notes</button>
+      </div>
+      <div class="tab-panel active" id="tabMsg">
+        <div class="workspace-stub">
+          <p style="margin:0 0 10px"><strong>Dr. Lena Ortiz:</strong> Thanks for signing. The reagent-film supplier question is the one I'd love your read on first.</p>
+          <p style="margin:0"><strong>You:</strong> On it — I've sourced similar films before. Let's scope a manufacturing plan this week.</p>
+          <div style="display:flex;gap:8px;margin-top:14px">
+            <input type="text" placeholder="Write a message… (prototype)" >
+            <button class="btn btn-navy">Send</button>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="tabFiles">
+        <div class="file-row"><span>📄</span> bench-results-summary.pdf <span class="muted mono" style="margin-left:auto">1.2 MB</span></div>
+        <div class="file-row"><span>📄</span> housing-concept-v2.step <span class="muted mono" style="margin-left:auto">4.8 MB</span></div>
+        <div class="file-row"><span>📄</span> reagent-film-spec.xlsx <span class="muted mono" style="margin-left:auto">212 KB</span></div>
+      </div>
+      <div class="tab-panel" id="tabNotes">
+        <div class="workspace-stub">Shared notes (prototype). Capture decisions, open questions, and milestones here — all kept inside the room.</div>
+      </div>
+    </section>
+
+    <div class="center">
+      <button class="btn btn-primary btn-lg" onclick="goAgreement()">Draft the Collaboration Agreement →</button>
+    </div>
+  </section>
+
+  <!-- STAGE C: AGREEMENT -->
+  <section class="panel hidden" id="stageAgreement" style="margin-top:26px">
+    <h2>Collaboration Agreement</h2>
+    <p class="muted">A guided agreement so both parties know their roles, Stake, and rights before building.</p>
+
+    <div class="grid grid-2" style="margin:18px 0">
+      <div class="card">
+        <h3 style="margin-top:0">Roles</h3>
+        <dl class="kv">
+          <dt>iDeaer</dt><dd>Dr. Lena Ortiz — science lead</dd>
+          <dt>Collaborator</dt><dd>You — hardware co-founder</dd>
+        </dl>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0">IP ownership</h3>
+        <p class="muted" style="margin:0">Jointly held by a new entity; background IP stays with its originator. Filings coordinated through the Lab's IP steps.</p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:18px">
+      <h3 style="margin-top:0">Stake split <span class="muted" style="font-weight:400;font-size:.85rem">(editable)</span></h3>
+      <div class="split-bar">
+        <span class="a" id="barA" style="width:55%"></span>
+        <span class="b" id="barB" style="width:45%"></span>
+      </div>
+      <div class="stake-split">
+        <div>
+          <span class="muted" style="font-size:.85rem">iDeaer</span>
+          <div class="num" id="valA">55%</div>
+          <input type="range" min="30" max="70" value="55" oninput="splitChange(this.value)" aria-label="iDeaer stake percentage">
+        </div>
+        <div>
+          <span class="muted" style="font-size:.85rem">Collaborator (you)</span>
+          <div class="num" id="valB">45%</div>
+        </div>
+      </div>
+      <p class="muted" style="font-size:.84rem;margin:0">Stake type: Equity. Vesting over a standard 4-year schedule.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:18px">
+      <h3 style="margin-top:0">Exit</h3>
+      <p class="muted" style="margin:0">Either party may exit with notice; unvested Stake returns to the pool. Confidentiality obligations survive exit.</p>
+    </div>
+
+    <div id="signBox">
+      <button class="btn btn-primary btn-lg" onclick="eSign()">✍ e-Sign agreement</button>
+    </div>
+
+    <div class="notice notice-success hidden" id="signed" style="margin-top:6px">
+      <span style="font-size:1.3rem">✓</span>
+      <div>
+        <strong>Agreement executed &amp; stored with provenance.</strong>
+        <p class="muted" style="margin:6px 0 8px">Both signatures recorded. A copy is sealed in the room and in each party's records.</p>
+        <span class="provenance"><span class="seal">⏱</span> Agreement executed · 2026-11-20 17:08 UTC · provenance recorded · <span class="mono">doc #IDX-AGR-4471</span></span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <span>ideaExchange (iDEx) — prototype · not a live product.</span>
+    <span><a href="index.html">Home</a> · <a href="discover.html">Discover</a> · <a href="lab.html">The Lab</a></span>
+  </div>
+</footer>
+
+<script>
+  function setStage(step) {
+    [['t1',1],['t2',2],['t3',3]].forEach(function(p){
+      var el = document.getElementById(p[0]);
+      el.classList.remove('active','done');
+      if (p[1] < step) el.classList.add('done');
+      if (p[1] === step) el.classList.add('active');
+    });
+  }
+
+  function acceptNda() {
+    document.getElementById('stageNda').classList.add('hidden');
+    document.getElementById('stageUnsealing').classList.remove('hidden');
+    setStage(2);
+    // deliberate, secure-feeling unseal
+    setTimeout(function () {
+      document.getElementById('stageUnsealing').classList.add('hidden');
+      document.getElementById('stageRevealed').classList.remove('hidden');
+      document.getElementById('roomState').textContent = '🔓 Unsealed';
+      document.getElementById('roomState').className = 'badge badge-verified';
+    }, 1600);
+  }
+
+  function goAgreement() {
+    document.getElementById('stageAgreement').classList.remove('hidden');
+    setStage(3);
+    document.getElementById('stageAgreement').scrollIntoView({behavior:'smooth'});
+  }
+
+  function splitChange(v) {
+    v = parseInt(v, 10);
+    document.getElementById('valA').textContent = v + '%';
+    document.getElementById('valB').textContent = (100 - v) + '%';
+    document.getElementById('barA').style.width = v + '%';
+    document.getElementById('barB').style.width = (100 - v) + '%';
+  }
+
+  function eSign() {
+    document.getElementById('signBox').classList.add('hidden');
+    document.getElementById('signed').classList.remove('hidden');
+    document.getElementById('signed').scrollIntoView({behavior:'smooth'});
+  }
+
+  function showTab(e, id) {
+    var tabs = e.currentTarget.parentNode.querySelectorAll('.tab');
+    tabs.forEach(function(t){ t.classList.remove('active'); });
+    e.currentTarget.classList.add('active');
+    document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+    document.getElementById(id).classList.add('active');
+  }
+</script>
+
+</body>
+</html>
